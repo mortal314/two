@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <title>2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(-45deg, #f8d7da, #ffefba, #f8d7da, #ffefba);
+            background-size: 400% 400%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            opacity: 0; 
+            transition: opacity 1s; 
+            animation: gradient-animation 15s ease infinite; 
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #snow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .a {
+            width: 1300px;
+            height: 830px;
+            border-radius: 10px;
+            margin: 50px auto;
+
+            /* background-color: rgba(248, 215, 218, 0.9);  */
+            padding: 20px;  
+            position: relative;  
+            overflow: hidden; 
+        }
+
+        li {
+            list-style: none;
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s, transform 0.5s; 
+            cursor: pointer; 
+        }
+
+        .a ul {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px 50px 10px 60px;
+            justify-content: space-between;
+            align-content: space-between;
+        }
+
+        .a ul li {
+            display: flex;
+            width: 500px;
+            height: 180px;
+            margin-top: 20px;
+            margin-bottom: 200px;
+        }
+
+        .a .pic {
+            
+            display: flex;
+        }
+        .a .pic:hover img{
+            transition: all 2s;
+            width: 230px;
+            height: 310px;
+           /*  transform: scale(2); */
+        }
+
+        .a .pic img {
+           
+            width: 50px;
+            height: 50px;
+        }
+
+        .a .text {
+            margin-left: 30px;
+        }
+
+        .a .text h2 {
+            line-height: 60px;
+            font-size: 20px;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .a .text p {
+            font-size: 27px;
+            color: #666;
+            display: none; /* 默认隐藏祝福文字 */
+            transform: scale(0);
+            transition: transform 0.3s ease; /* 渐变效果 */
+        }
+
+        button {
+            margin: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden; /* 波纹效果 */
+            transition: transform 0.2s; /* 按钮缩放效果 */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05); /* 悬停时轻微缩放 */
+        }
+
+        button:focus {
+            outline: none; /* 去掉点击后按钮的边框 */
+        }
+
+        .iconfont {
+            font-size: 60px;
+            color: #000;
+        }
+
+        .wave {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: wave-animation 0.6s linear;
+        }
+
+        @keyframes wave-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* 粒子效果 */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+            animation: particle-animation 2s linear infinite;
+        }
+
+        @keyframes particle-animation {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="snow"></canvas>
+<div class="a">
+    <ul>
+        <li>
+            <div class="pic"><img src="./9954.jpg" alt=""></div>
+            <div class="text">
+                <h2>春风得意，前程似锦</h2>
+                <p>祝福宝宝在新的一岁里，事业如春风般顺利，前程似锦</p>
+            </div>
+
+        </li>
+        <li>
+            <div class="pic"><img src="./9951.jpg" alt=""></div>
+            <div class="text">
+                <h2>夏日炎炎，福运连连</h2>
+                <p>祝福宝宝的生活如夏日绿荫般清凉舒适，健康快乐</p>
+            </div>
+        </li>
+        <li>
+            <div class="pic"><img src="./9952.jpg" alt=""></div>
+            <div class="text">
+                <h2>硕果累累，收获满满</h2>
+                <p>愿宝宝在这一年里，付出都有回报，收获满满当当</p>
+            </div>
+        </li>
+        <li>
+            <div class="pic"><img src="./9953.jpg" alt=""></div>
+            <div class="text">
+                <h2>银装素裹，福瑞双全</h2>
+                <p>祝福宝宝的生活如冬日雪景般纯净美好，福瑞双全</p>
+            </div>
+        </li>
+    </ul>
+  
+   
+    <div id="particles"></div>
+</div>
+
+<button onclick="goToAnotherPage(event)"><span class="iconfont">&#xe8ac;</span> </button>
+
+<script>
+    // 页面加载时淡入效果
+    window.onload = function() {
+        document.body.style.opacity = 1;
+
+        // 初始化粒子效果
+        createParticles();
+        
+        const listItems = document.querySelectorAll('.a ul li');
+        listItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.opacity = 1; // 渐显效果
+                item.style.transform = 'translateY(0)'; // 滑动效果
+            }, index * 200); // 每个项之间的延迟
+        });
+
+        // 添加点击事件
+        let currentIndex = 0; // 当前显示的索引
+        listItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (currentIndex < listItems.length) {
+                    const text = item.querySelector('.text p');
+                    text.style.display = 'block'; // 显示祝福文本
+                    text.style.transform = 'scale(1)'; // 弹性效果
+                    currentIndex++; // 更新索引
+                }
+            });
+        });
+    };
+
+    // 创建粒子效果
+    function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+        for (let i = 0; i < 20; i++) { // 创建20个粒子
+            const particle = document.createElement("div");
+            particle.classList.add("particle");
+            const size = Math.random() * 5 + 5; // 随机大小
+            particle.style.width = particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * window.innerWidth}px`;
+            particle.style.bottom = "0"; // 从底部开始
+            particlesContainer.appendChild(particle);
+            // 延迟移动粒子
+            setTimeout(() => {
+                particle.style.animationDuration = `${Math.random() * 2 + 1}s`; // 随机动画时长
+                particle.style.bottom = `${Math.random() * 100 + 100}px`; // 随机高度
+            }, Math.random() * 1000);
+        }
+    }
+
+    // 下雪效果
+    const canvas = document.getElementById('snow');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    function createSnowflake() {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const size = Math.random() * 5 + 2;
+        return { x, y, size, speed: Math.random() * 1 + 0.5 };
+    }
+
+    let snowflakes = Array.from({ length: 100 }, createSnowflake);
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+        snowflakes.forEach(snowflake => {
+            ctx.beginPath();
+            ctx.arc(snowflake.x, snowflake.y, snowflake.size, 0, Math.PI * 2);
+            ctx.fill();
+            snowflake.y += snowflake.speed;
+            if (snowflake.y > canvas.height) {
+                snowflake.y = 0;
+                snowflake.x = Math.random() * canvas.width;
+            }
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+
+    // 跳转到另一个页面的函数
+    function goToAnotherPage(event) {
+        const button = event.currentTarget;
+        const wave = document.createElement('span');
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        wave.style.width = wave.style.height = `${size}px`;
+        wave.style.left = `${event.clientX - rect.left - size / 2}px`;
+        wave.style.top = `${event.clientY - rect.top - size / 2}px`;
+        wave.classList.add('wave');
+        button.appendChild(wave);
+        setTimeout(() => {
+            wave.remove();
+        }, 600);
+
+        // 倒计时并跳转
+        let countdown = 5; // 倒计时5秒
+        const countdownInterval = setInterval(() => {
+            if (countdown > 0) {
+                alert(`跳转将在${countdown}秒后进行...`);
+                countdown--;
+            } else {
+                clearInterval(countdownInterval);
+                window.location.href = './welcome.html'; // 替换为你的目标页面链接
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
+
